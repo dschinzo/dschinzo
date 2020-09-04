@@ -11,6 +11,8 @@
 
     --previewBg:rgb(251, 249, 243, 0.8);
     --previewShadow:#f0ead6;
+
+    --buttonColor:black;
 }
 html,body {
   padding: 0;
@@ -141,10 +143,11 @@ h6{ font-size: 16px;}
 #profile_pic{
     display: block;
     margin: 0 auto;
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
     object-fit: cover;
     border: 2px solid var(--borderColor);
+    border-radius: 60px;
 }
 
 #theme-options-wrapper{
@@ -204,14 +207,14 @@ h6{ font-size: 16px;}
 
 #preview-shadow{
     background-color: var(--previewShadow);
-    width: 300px;
+    width: 370px;
     height: 180px;
     padding-left: 30px;
     padding-top: 30px;
 }
 
 #preview{
-    width: 300px;
+    width: 370px;
     height: 180px;
     border: 1.5px solid #17a2b8;
     background-color: var(--previewBg);
@@ -248,9 +251,199 @@ h6{ font-size: 16px;}
     left: -5px;
 }
 
+.header{
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+}
+
+.header:after{
+    content: "";
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 200px;
+    background-color: #2ecc71;
+    border-radius: 2;
+}
+
+.skills-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+}
+
+.skill-box{
+    padding: 1rem;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.skill-box:hover > .skill-title:after, .skill-box:hover > .skill-title:before{
+    width: 35px;
+}
+
+.skill-box:hover .skill-img{
+    transform: translateY(-10px);
+}
+
+.skill-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.skill-title:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    width: 0;
+    height: 4px;
+    border-radius: 2px 0 0 2px;
+    background-color: #2ecc71;
+    transition: .5s;
+}
+
+.skill-title:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    border-radius: 0 2px 2px 0;
+    background-color: #2ecc71;
+    transition: .5s;
+}
+
+.skill-title h3{
+    color: var(--mainText);
+    margin-top: 0.5rem;
+}
+
+.skill-img{
+    width: 90px;
+    height: 90px;
+    position: relative;
+    border-radius: 45px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: .5s;
+}
+
+.skill-img:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 90px;
+    background-color: rgb(100, 100, 100, 0.5);
+    border-radius: 45px 0 0 45px;
+}
+
+.skill-icon{
+    width: 50px;
+    z-index: 2;
+}
+
+.post-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 320px);
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 50px;
+  }
+  
+  .post {
+    border: 1px solid var(--borderColor);
+    -webkit-box-shadow: -2px 7px 21px -9px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -2px 7px 21px -9px rgba(0, 0, 0, 0.75);
+    box-shadow: -2px 7px 21px -9px rgba(0, 0, 0, 0.75);
+  }
+  
+  .thumbnail {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .post-preview {
+    background-color: #fff;
+    padding: 15px;
+  }
+  
+  .post-title {
+    color: black;
+    margin: 0;
+  }
+  
+  .post-intro {
+    color: #4b5156;
+    font-size: 14px;
+  }
+  
+  #contact-form {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid var(--borderColor);
+    padding: 15px;
+    border-radius: 5px;
+    background-color: var(--mainColor);
+    margin-bottom: 50px;
+  }
+  
+  #contact-form label {
+    line-height: 2.7em;
+  }
+  
+  #contact-form textarea {
+    min-height: 100px;
+    font-size: 14px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: var(--secondaryColor);
+    border-radius: 5px;
+    border: 1px solid var(--borderColor);
+    font-size: 14px;
+  }
+  
+  #submit-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #fff;
+    background-color: var(--buttonColor);
+    border: none;
+  }
+
+
 @media screen and (max-width: 1200px){
     .main-container{
         width: 95%;
+    }
+}
+
+@media screen and (max-width: 990px){
+    .skills-container{
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem 50px;
     }
 }
 
@@ -268,4 +461,10 @@ h6{ font-size: 16px;}
         justify-content: center;
     }
     
+}
+
+@media screen and (max-width: 650px){
+    .skills-container{
+        grid-template-columns: 1fr;
+    }
 }
