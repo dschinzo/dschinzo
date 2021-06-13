@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: dschinzo.github.io
-Token: d1e448e978d171638330a932ec7e28a78ea0fb7867981c86736d28cd87d063d7
